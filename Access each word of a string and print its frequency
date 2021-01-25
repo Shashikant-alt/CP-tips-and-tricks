@@ -1,0 +1,25 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+#include <sstream>
+using namespace std;
+
+void printFrequencies(string &str)
+{
+    unordered_map<string,int>umap;
+    stringstream ss(str);
+    string word;
+    while(ss >> word)
+         umap[word]++;
+    unordered_map<string,int> :: iterator i;
+    for(i=umap.begin(); i!= umap.end(); i++)
+           cout << (*i).first << " " << (*i).second << endl;
+}
+
+int main()
+{
+    string str = "hey geek hey geek hello nerd";
+    cout << str << endl;
+    printFrequencies(str);
+    return 0;
+}
